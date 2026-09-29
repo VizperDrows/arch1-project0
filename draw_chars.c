@@ -3,11 +3,27 @@
 
 void print_char_5x7(char c)
 {
-  c -= 0x20;
+  c -= 0x20; //match the font file number
+  
   for (char col = 0; col < 5; col++) {
     for (char row = 0; row < 7; row++) {
       unsigned short rowBits = font_5x7[c][col];
       unsigned short colMask = 1 << (6-row); /* mask to select bit associated with bit */
+      putchar( (rowBits & colMask) ? '*' : ' ');
+    }
+    putchar('\n');
+  }
+  putchar('\n');
+}
+
+void print_char_12x8(char c)
+{
+  c -= 0x20; // match the font file number
+  
+  for (char row = 0; row < 12; row++) {
+    for (char col = 0; col < 7; col++) {
+      unsigned short rowBits = font_12x8[c][row];
+      unsigned short colMask = 1 << (6-col); /* mask to select bit associated with bit */
       putchar( (rowBits & colMask) ? '*' : ' ');
     }
     putchar('\n');

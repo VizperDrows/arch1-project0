@@ -3,8 +3,11 @@
 
 void print_triangle(int startCol, int size);
 void print_square(int startCol, int size);
+void print_arrow(int startCol, int size);
 void print_char_5x7(char c);
+void print_char_12x8(char c);
 
 extern const unsigned char font_5x7[][5];
+extern const unsigned char font_12x8[][12];
 
 #endif
